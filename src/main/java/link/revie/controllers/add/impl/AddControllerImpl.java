@@ -10,6 +10,7 @@ public class AddControllerImpl implements AddController {
 	@Override
 	public void form() {
 		// FIXME
+		System.out.println("Add/Form");
 	}
 
 	@Override

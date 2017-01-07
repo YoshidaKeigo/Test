@@ -1,0 +1,14 @@
+{
+  "name": "revie-web-components",
+  "authors": [
+    "revie"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#~1.0.0"
+  }
+}
