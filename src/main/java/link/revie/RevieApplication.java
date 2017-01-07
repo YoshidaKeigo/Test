@@ -9,4 +9,5 @@ public class RevieApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RevieApplication.class, args);
 	}
+	
 }
