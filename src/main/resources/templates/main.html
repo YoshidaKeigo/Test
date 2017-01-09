@@ -2,11 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-	<script src="lib/polymer/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-	<link rel="import" href="components/add-article-button.html"/>
+	<script src="web-lib/polymer/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+	<link rel="import" href="ui-components/circle-button.html"/>
 	<title>Insert title here</title>
 </head>
 <body>
-	<add-article-button></add-article-button>
+	<circle-button href="Add/Form"><img src="images/add.png"/></circle-button>
+	<circle-button href="delete"><img src="images/delete.png"/></circle-button>
+	<circle-button href="sort"><img src="images/sort.png"/></circle-button>
+	<circle-button><img src="images/update.png"/></circle-button>
 </body>
 </html>

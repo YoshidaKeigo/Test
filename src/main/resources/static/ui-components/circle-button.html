@@ -1,0 +1,39 @@
+<link rel="import" href="../web-lib/polymer/bower_components/polymer/polymer.html">
+
+<dom-module id="circle-button">
+
+  <style>
+    div {
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background-color: gray;
+		margin: 2px;
+	}
+	div:hover, div:active{
+		background-color: green;
+	}
+	:host ::content img, div a{
+		width: inherit;
+	}
+  </style>
+
+  <template>
+    <div>
+    	<a href="{{href}}"><content></content></a>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: "circle-button",
+      properties: {
+      	href: {
+	      	type: String,
+	      	value: "#"	
+      	}
+      }
+    });
+  </script>
+
+</dom-module>
