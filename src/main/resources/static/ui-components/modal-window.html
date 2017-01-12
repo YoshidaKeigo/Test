@@ -1,0 +1,20 @@
+<link rel="import" href="../web-lib/polymer/polymer.html">
+
+<dom-module id="modal-window">
+
+  <template>
+    <a data-target$="{{target}}" class="modal-open"><content></content></a>
+  </template>
+	
+	<script>
+	    Polymer({
+	      is: "modal-window",
+	      properties: {
+	      	target: {
+		      	type: String
+	      	}
+      	  }
+	    });
+	</script>
+	
+</dom-module>

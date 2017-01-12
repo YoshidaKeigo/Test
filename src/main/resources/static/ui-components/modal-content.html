@@ -1,0 +1,20 @@
+<link rel="import" href="../web-lib/polymer/polymer.html">
+
+<dom-module id="modal-content">
+
+  <template>
+    <div id="{{key}}" class="modal-content"><content></content></div>
+  </template>
+	
+	<script>
+	    Polymer({
+	      is: "modal-content",
+	      properties: {
+	      	key: {
+		      	type: String
+	      	}
+      	  }
+	    });
+	</script>
+
+</dom-module>
