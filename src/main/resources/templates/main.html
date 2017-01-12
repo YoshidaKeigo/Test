@@ -4,10 +4,14 @@
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 	<script src="web-lib/polymer/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 	<link rel="import" href="ui-components/circle-button.html"/>
+	<link rel="import" href="ui-components/fixed-component.html"/>
 	<title>Insert title here</title>
 </head>
 <body>
-	<circle-button href="Add/Form"><img src="images/add.png"/></circle-button>
+	<div style="background-color:red;width:50px;height:1000px"></div>
+	<fixed-component>
+		<circle-button style="width:50px;height:50px"><img src="images/menu.png"/></circle-button>
+	</fixed-component>
 	<circle-button href="delete"><img src="images/delete.png"/></circle-button>
 	<circle-button href="sort"><img src="images/sort.png"/></circle-button>
 	<circle-button><img src="images/update.png"/></circle-button>

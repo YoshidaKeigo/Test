@@ -4,14 +4,18 @@
 
   <style>
     div {
-		width: 30px;
-		height: 30px;
+    	width: 30px;
+    	height: 30px;
 		border-radius: 50%;
 		background-color: gray;
 		margin: 2px;
+		box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.3);
 	}
 	div:hover, div:active{
 		background-color: green;
+	}
+	div:active{
+		box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.3);
 	}
 	:host ::content img, div a{
 		width: inherit;
@@ -19,8 +23,8 @@
   </style>
 
   <template>
-    <div>
-    	<a href="{{href}}"><content></content></a>
+    <div style$="[[style]]">
+    	<a href$="[[href]]"><content></content></a>
     </div>
   </template>
 
@@ -31,6 +35,9 @@
       	href: {
 	      	type: String,
 	      	value: "#"	
+      	},
+      	style: {
+	      	type: String
       	}
       }
     });

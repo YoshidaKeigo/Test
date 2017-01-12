@@ -1,0 +1,23 @@
+<link rel="import" href="../web-lib/polymer/bower_components/polymer/polymer.html">
+
+<dom-module id="fixed-component">
+
+  <style>
+	:host ::content {
+		position: fixed;
+		right: 50px;
+		top: 50px
+	}
+  </style>
+
+  <template>
+    <content></content>
+  </template>
+
+  <script>
+    Polymer({
+      is: "fixed-component"
+    });
+  </script>
+
+</dom-module>
