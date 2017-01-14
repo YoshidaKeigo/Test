@@ -1,0 +1,26 @@
+@font-face {
+	font-family: 'h';
+	src: url(../font/chogokubosogothic.ttf);
+}
+
+body {
+	margin: 0px;
+}
+
+header {
+	width: 100%;
+	background-color: black;
+}
+
+header img{
+	width: 100px;
+}
+
+footer {
+	width: 100%;
+	margin: 10px;
+	padding: 10px;
+	border-top: solid 1px black;
+	font-size: 10px;
+	text-align: center;
+}

@@ -1,0 +1,46 @@
+<link rel="import" href="../../web-lib/polymer/polymer.html">
+
+<dom-module id="main-content">
+
+	<style>
+		.wrapper {
+			height: 100px;
+			width: 100%;
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		.contents {
+			height: inherit;
+			margin: 0px;
+			padding: 0px;
+			background-color: yellow;
+		}
+	
+		@media screen and (min-width: 600px){
+		.wrapper {
+			float: left;
+			margin-right: -200px;
+		}
+		
+		.contents {
+			margin-right: 200px;
+		}
+		}
+	</style>
+
+	<template>
+		<div class="wrapper">
+			<div class="contents">
+				<content></content>
+			</div>
+		</div>
+	</template>
+	
+	<script>
+	    Polymer({
+	      is: "main-content"
+	    });
+	</script>
+
+</dom-module>

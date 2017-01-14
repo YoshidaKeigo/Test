@@ -3,33 +3,47 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 	<script src="web-lib/webcomponentsjs/webcomponents-lite.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/revie.css"/>
 	<link rel="stylesheet" type="text/css" href="css/modal.css"/>
-	<link rel="import" href="ui-components/circle-button.html"/>
-	<link rel="import" href="ui-components/fixed-component.html"/>
-	<link rel="import" href="ui-components/modal-window.html"/>
-	<link rel="import" href="ui-components/modal-content.html"/>
+	<link rel="import" href="custom-tag/layout/contents-container.html"/>
+	<link rel="import" href="custom-tag/layout/main-content.html"/>
+	<link rel="import" href="custom-tag/layout/sub-content.html"/>
+	<link rel="import" href="custom-tag/circle-button.html"/>
+	<link rel="import" href="custom-tag/fixed-component.html"/>
+	<link rel="import" href="custom-tag/modal/modal-window.html"/>
+	<link rel="import" href="custom-tag/modal/modal-content.html"/>
 	<script src="web-lib/jquery/dist/jquery.js"></script>
 	<script src="js/modal.js"></script>
-	<title>Insert title here</title>
+	<link rel="shortcut icon" type="image/png" href="img/icon.png"/>
+	<title>Re:Vie</title>
 </head>
 <body>
-	<div style="background-color:red;width:50px;height:1000px"></div>
-	<fixed-component>
-		<a data-target="data2" class="modal-open">
-			<circle-button style="width:50px;height:50px"><img src="images/menu.png"/></circle-button>
-		</a>
-	</fixed-component>
-	<circle-button href="delete"><img src="images/delete.png"/></circle-button>
-	<circle-button href="sort"><img src="images/sort.png"/></circle-button>
-	<modal-window target="data1">モーダル・ウィンドウ</modal-window>
+	<header>
+		<a href="/"><img src="img/key-visual.png"/></a>
+	</header>
+
+	<modal-window target="data1">
+		<fixed-component>
+			<circle-button style="width:50px;height:50px"><img src="img/menu.png"/></circle-button>
+		</fixed-component>
+	</modal-window>
 	<modal-content key="data1">
 		<p>modal test</p>
 		<a class="modal-close">閉じる</a>
 	</modal-content>
-	<a data-target="data2" class="modal-open style-scope">モーダル・ウィンドウ2</a>
-	<div id="data2" class="modal-content">
-		<p>modal test2</p>
-		<a class="modal-close">close</a>
-	</div>
+
+	<contents-container>
+		<main-content>
+			Main
+		</main-content>
+		<sub-content>
+			Sub
+		</sub-content>
+	</contents-container>
+	
+	<footer>
+		Footer
+	</footer>
+	
 </body>
 </html>
