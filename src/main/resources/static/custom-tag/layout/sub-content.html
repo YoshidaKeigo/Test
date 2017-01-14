@@ -3,16 +3,21 @@
 <dom-module id="sub-content">
 
 	<style>
-		div {
+		.wrapper {
 			height: 1000px;
 			width: 100%;
 			margin: 0px;
 			padding: 0px;
-			background-color: red;
 		}
 		
+		.contents {
+			height: inherit;
+			margin: 0px;
+			padding: 20px;
+		}
+
 		@media screen and (min-width: 600px){
-		div {
+		.wrapper {
 			float: right;
 			width: 200px;
 		}
@@ -20,8 +25,10 @@
 	</style>
 
 	<template>
-		<div>
-			<content></content>
+		<div class="wrapper">
+			<div class="contents">
+				<content></content>
+			</div>
 		</div>
 	</template>
 	

@@ -24,3 +24,11 @@ footer {
 	font-size: 10px;
 	text-align: center;
 }
+
+h1 {
+	font-family: h;
+	font-size: 28px;
+	margin: 0;
+	margin-bottom: 16px;
+	border-bottom: solid 1px black;
+}
