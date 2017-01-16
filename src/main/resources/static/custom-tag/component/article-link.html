@@ -1,0 +1,62 @@
+<link rel="import" href="../../web-lib/polymer/polymer.html">
+<link rel="stylesheet" type="text/css" href="../../css/shadow-button.css"/>
+
+<dom-module id="article-link">
+
+  <style>
+  	a {
+		text-decoration: none;
+		color: black;
+	}
+    div {
+    	margin: 10px;
+    	padding: 5px;
+    	border-left: solid 10px white;
+	}
+	div:hover {
+    	border-left: solid 10px green;
+	}
+	h2 {
+		font-family: h;
+		font-size: 20px;
+		margin: 0;
+		margin-bottom: 2px;
+		padding: 2px;
+		border-bottom: solid 1px black;
+	}
+	time {
+		font-size: 12px;
+		vertical-align: bottom;
+	}
+	p {
+		font-size: 15px;
+	}
+  </style>
+
+  <template>
+    <a href$="[[href]]"><div class="shadow-button">
+    	<h2>[[title]]</h2>
+    	<time>[[datetime]]</time>
+    	<br/>
+    	<p><content></content></p>
+    </div></a>
+  </template>
+
+  <script>
+    Polymer({
+      is: "article-link",
+      properties: {
+      	href: {
+	      	type: String
+      	},
+      	title: {
+	      	type: String
+      	},
+      	datetime: {
+	      	type: String
+      	}
+      }
+    });
+  </script>
+
+</dom-module>

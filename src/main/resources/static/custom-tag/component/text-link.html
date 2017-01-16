@@ -1,0 +1,40 @@
+<link rel="import" href="../../web-lib/polymer/polymer.html">
+<link rel="stylesheet" type="text/css" href="../../css/shadow-button.css"/>
+
+<dom-module id="text-link">
+
+  <style>
+  	a {
+  		font-family: h;
+  		font-size: 15px;
+		text-decoration: none;
+		color: black;
+	}
+    div {
+    	margin: 10px;
+    	padding: 5px;
+    	border-left: solid 5px gray;
+	}
+	div:hover {
+    	border-left: solid 5px green;
+	}
+  </style>
+
+  <template>
+    <a href$="[[href]]"><div class="shadow-button">
+    	<content></content>
+    </div></a>
+  </template>
+
+  <script>
+    Polymer({
+      is: "text-link",
+      properties: {
+      	href: {
+	      	type: String
+      	}
+      }
+    });
+  </script>
+
+</dom-module>

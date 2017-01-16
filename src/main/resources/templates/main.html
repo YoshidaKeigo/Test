@@ -8,8 +8,10 @@
 	<link rel="import" href="custom-tag/layout/contents-container.html"/>
 	<link rel="import" href="custom-tag/layout/main-content.html"/>
 	<link rel="import" href="custom-tag/layout/sub-content.html"/>
-	<link rel="import" href="custom-tag/circle-button.html"/>
-	<link rel="import" href="custom-tag/fixed-component.html"/>
+	<link rel="import" href="custom-tag/component/circle-button.html"/>
+	<link rel="import" href="custom-tag/component/article-link.html"/>
+	<link rel="import" href="custom-tag/component/text-link.html"/>
+	<link rel="import" href="custom-tag/util/fixed-component.html"/>
 	<link rel="import" href="custom-tag/modal/modal-window.html"/>
 	<link rel="import" href="custom-tag/modal/modal-content.html"/>
 	<script src="web-lib/jquery/dist/jquery.js"></script>
@@ -34,10 +36,18 @@
 
 	<contents-container>
 		<main-content>
-			<h1>Main</h1>
+			<h1>新着記事</h1>
+			<article-link href="" title="劇場版　ガールズ&amp;パンツァー" datetime="2016/1/17 0:00">ガルパンはいいぞ</article-link>
+			<article-link href="" title="劇場版　ガールズ&amp;パンツァー" datetime="2016/1/17 0:00">ガルパンはいいぞ</article-link>
+			<article-link href="" title="劇場版　ガールズ&amp;パンツァー" datetime="2016/1/17 0:00">ガルパンはいいぞ</article-link>
 		</main-content>
 		<sub-content>
-			<h1>Sub</h1>
+			<h1>カテゴリ</h1>
+			<text-link href="">全般</text-link>
+			<text-link href="">アクション</text-link>
+			<text-link href="">ドラマ</text-link>
+			<text-link href="">サスペンス</text-link>
+			<text-link href="">ノンフィクション</text-link>
 		</sub-content>
 	</contents-container>
 	
