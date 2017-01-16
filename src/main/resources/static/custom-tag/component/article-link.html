@@ -5,13 +5,15 @@
 
   <style>
   	a {
+  		font-family: h;
+  		font-size: 14px;
 		text-decoration: none;
 		color: black;
 	}
     div {
     	margin: 10px;
     	padding: 5px;
-    	border-left: solid 10px white;
+    	border-left: solid 10px gray;
 	}
 	div:hover {
     	border-left: solid 10px green;
@@ -24,11 +26,20 @@
 		padding: 2px;
 		border-bottom: solid 1px black;
 	}
-	time {
+	.small {
+		float: right;
 		font-size: 12px;
-		vertical-align: bottom;
+		vertical-align: top;
+	}
+	.small:after {
+		float: none;
+	}
+	.large {
+		font-family: h;
+		font-size: 20px; 
 	}
 	p {
+		font-family: arial;
 		font-size: 15px;
 	}
   </style>
@@ -36,7 +47,8 @@
   <template>
     <a href$="[[href]]"><div class="shadow-button">
     	<h2>[[title]]</h2>
-    	<time>[[datetime]]</time>
+    	<span class="small"><time>[[datetime]]</time> 投稿</span>
+    	評価 <span class="large">[[point]]</span> /100点
     	<br/>
     	<p><content></content></p>
     </div></a>
@@ -53,6 +65,9 @@
 	      	type: String
       	},
       	datetime: {
+	      	type: String
+      	},
+      	point: {
 	      	type: String
       	}
       }
