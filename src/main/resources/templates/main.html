@@ -5,6 +5,7 @@
 	<script src="web-lib/webcomponentsjs/webcomponents-lite.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/revie.css"/>
 	<link rel="stylesheet" type="text/css" href="css/modal.css"/>
+	<link rel="stylesheet" type="text/css" href="css/shadow-button.css"/>
 	<link rel="import" href="custom-tag/layout/contents-container.html"/>
 	<link rel="import" href="custom-tag/layout/main-content.html"/>
 	<link rel="import" href="custom-tag/layout/sub-content.html"/>
@@ -44,11 +45,9 @@
 		</main-content>
 		<sub-content>
 			<h1>カテゴリ</h1>
-			<text-link href="">全般</text-link>
-			<text-link href="">アクション</text-link>
-			<text-link href="">ドラマ</text-link>
-			<text-link href="">サスペンス</text-link>
-			<text-link href="">ノンフィクション</text-link>
+			<div th:each="category : ${categories}" th:object="${category}">
+				<text-link th:href="@{Category/{path}(path=*{path})}" th:text="*{name}"></text-link>
+			</div>
 		</sub-content>
 	</contents-container>
 	
