@@ -23,3 +23,6 @@ dist/
 nbdist/
 .nb-gradle/
 /bin/
+
+### 環境切り替えができるようになるまでの一時的なもの
+src/main/resources/application.properties
