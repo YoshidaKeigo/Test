@@ -11,4 +11,6 @@ public interface MainController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	String main(Model model);
 
+	@RequestMapping(value = "/Login", method = RequestMethod.GET)
+	String login();
 }

@@ -27,5 +27,11 @@ public class MainControllerImpl implements MainController {
 		model.addAttribute("categories", categories);	
 		return "main";
 	}
+
+	@Override
+	public String login() {
+		return "login";
+	}
+	
 	
 }
