@@ -26,29 +26,11 @@
 	</header>
 	<div>レヴィ</div>
 
-	<modal-window target="data1">
-		<fixed-component>
-			<circle-button style="width:50px;height:50px"><img src="img/menu.png"/></circle-button>
-		</fixed-component>
-	</modal-window>
-	<modal-content key="data1">
-		<p>modal test</p>
-		<a class="modal-close">閉じる</a>
-	</modal-content>
+	<div th:include="main-menu :: main-menu"></div>
 
 	<contents-container>
-		<main-content>
-			<h1>新着記事</h1>
-			<article-link href="" title="劇場版　ガールズ&amp;パンツァー" datetime="2016/1/17 0:00" point="98">ガルパンはいいぞ</article-link>
-			<article-link href="" title="劇場版　ガールズ&amp;パンツァー" datetime="2016/1/17 0:00" point="98">ガルパンはいいぞ</article-link>
-			<article-link href="" title="劇場版　ガールズ&amp;パンツァー" datetime="2016/1/17 0:00" point="98">ガルパンはいいぞ</article-link>
-		</main-content>
-		<sub-content>
-			<h1>カテゴリ</h1>
-			<div th:each="category : ${categories}" th:object="${category}">
-				<text-link th:href="@{Category/{path}(path=*{path})}" th:text="*{name}"></text-link>
-			</div>
-		</sub-content>
+		<main-content th:include="main-content :: main-content"></main-content>
+		<sub-content th:include="sub-content :: sub-content"></sub-content>
 	</contents-container>
 	
 	<footer>

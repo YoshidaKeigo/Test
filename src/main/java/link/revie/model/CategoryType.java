@@ -1,7 +1,6 @@
 package link.revie.model;
 
 import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.Stream;
 
 public enum CategoryType {
@@ -41,10 +40,11 @@ public enum CategoryType {
 		return path;
 	}
 	
-	public static Optional<CategoryType> of(String code) {
+	public static CategoryType of(String code) {
 		return Stream.of(values())
 				.filter(c -> Objects.equals(c.getCode(), code))
-				.findFirst();
+				.findFirst()
+				.orElse(null);
 	}
 
 }

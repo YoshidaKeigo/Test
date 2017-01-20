@@ -1,0 +1,6 @@
+<div th:fragment="sub-content">
+	<h1>カテゴリ</h1>
+	<div th:each="category : ${categories}" th:object="${category}">
+		<text-link th:href="@{Category/{path}(path=*{path})}" th:text="*{name}"></text-link>
+	</div>
+</div>

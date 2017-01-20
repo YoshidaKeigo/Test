@@ -20,10 +20,10 @@ public class ArticleArticle {
 	@GeneratedValue
 	@Column(name = "ID")
 	private Integer id;
-	@Column(name = "FROM")
-	private Integer from;
-	@Column(name = "TO")
-	private Integer to;
+	@Column(name = "FROM_ID")
+	private Integer fromId;
+	@Column(name = "TO_ID")
+	private Integer toId;
 
 	public Integer getId() {
 		return id;
@@ -33,19 +33,19 @@ public class ArticleArticle {
 		this.id = id;
 	}
 
-	public Integer getFrom() {
-		return from;
+	public Integer getFromId() {
+		return fromId;
 	}
 
-	public void setFrom(Integer from) {
-		this.from = from;
+	public void setFromId(Integer fromId) {
+		this.fromId = fromId;
 	}
 
-	public Integer getTo() {
-		return to;
+	public Integer getToId() {
+		return toId;
 	}
 
-	public void setTo(Integer to) {
-		this.to = to;
+	public void setToId(Integer toId) {
+		this.toId = toId;
 	}
 }

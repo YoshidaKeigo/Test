@@ -1,8 +1,12 @@
 package link.revie.model.entity;
 
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,9 +14,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import link.revie.model.CategoryType;
+import link.revie.model.CategoryTypeConverter;
 import link.revie.model.MovieType;
+import link.revie.model.MovieTypeConverter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,21 +46,25 @@ public class Article {
 	@Column(name = "MONTH")
 	private Integer month;
 	@NotNull
+	@Convert(converter = MovieTypeConverter.class)
 	@Column(name = "MOVIE_TYPE")
 	private MovieType movieType;
 	@NotNull
-	@OneToMany
-	@JoinTable(name = "ARTICLE_CATEGORY",
-			joinColumns = { @JoinColumn(name = "ARTICLE_ID", referencedColumnName = "ID") },
-			inverseJoinColumns = { @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID") })
-	private List<Category> categories;
+	@ElementCollection(targetClass = CategoryType.class)
+	@Convert(converter = CategoryTypeConverter.class)
+	@CollectionTable(name = "ARTICLE_CATEGORY")
+	@Column(name = "CATEGORY")
+	private List<CategoryType> categories;
 	@Column(name = "TEXT")
 	private String text;
 	@OneToMany
 	@JoinTable(name = "ARTICLE_ARTICLE",
-			joinColumns = { @JoinColumn(name = "FROM", referencedColumnName = "ID") },
-			inverseJoinColumns = { @JoinColumn(name = "TO", referencedColumnName = "ID") })
+			joinColumns = { @JoinColumn(name = "FROM_ID", referencedColumnName = "ID") },
+			inverseJoinColumns = { @JoinColumn(name = "TO_ID", referencedColumnName = "ID") })
 	private List<Article> articles;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "CREATE_TIME")
+	private Date createTime;
 
 	public Integer getId() {
 		return id;
@@ -93,11 +106,11 @@ public class Article {
 		this.movieType = movieType;
 	}
 
-	public List<Category> getCategories() {
+	public List<CategoryType> getCategories() {
 		return categories;
 	}
 
-	public void setCategories(List<Category> categories) {
+	public void setCategories(List<CategoryType> categories) {
 		this.categories = categories;
 	}
 
