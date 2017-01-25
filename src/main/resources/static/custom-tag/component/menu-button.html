@@ -1,0 +1,77 @@
+<link rel="import" href="../../web-lib/polymer/polymer.html">
+
+<dom-module id="menu-button">
+
+  <style>
+    .container {
+    	background-color: rgba(0,0,0,0.0);
+    	height: 36px;
+    	width: 210px;
+    	padding: 0;
+	}
+	
+	.container[close="true"] {
+		width: 100px;
+	}
+
+	.container:hover {
+		background-color: rgba(255,255,255,0.3);
+	}
+	
+	.container:active {
+		background-color: rgba(0,0,0,0.0);
+	}
+	
+	.icon {
+		float: left;
+		width: 30px;
+    	height: 30px;
+		border-radius: 50%;
+		background-color: green;
+		margin: 3px;
+	}
+	
+	.icon img {
+		height: inherit;
+		width: inherit;
+	}
+	
+	.label {
+		float: left;
+		font-family: h;
+		font-size: 20px;
+    	text-align: left;
+    	color: white;
+    	width: 160px;
+    	height: 30px;
+    	line-height: 30px;
+    	margin: 3px;
+	}
+  </style>
+
+  <template>
+    <div class="container" close="[[close]]">
+    	<div class="icon"><img src="[[image]]"/></div>
+    	<div class="label">[[value]]</div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: "menu-button",
+      properties: {
+      	value: {
+	      	type: String
+      	},
+      	image: {
+	      	type: String
+      	},
+      	close: {
+	      	type: String,
+	      	value: "false"
+      	}
+      }
+    });
+  </script>
+
+</dom-module>

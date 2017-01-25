@@ -3,6 +3,7 @@ $(function(){
 		    $('.modal-open').click(function(){
 		        // オーバーレイ用の要素を追加
 		        $('body').append('<div class="modal-overlay"></div>');
+		        $('body').css('overflow', 'hidden');
 		        // オーバーレイをフェードイン
 		        $('.modal-overlay').fadeIn('fast');
 		
@@ -12,16 +13,28 @@ $(function(){
 		        modalResize();
 		         // モーダルコンテンツフェードイン
 		        $(modal).fadeIn('fast');
+		        
+		        $('*[rewrite-target]').click(function(){
+		        	$(modal).fadeOut('fast');
+		        	modal = '#' + $(this).attr('rewrite-target');
+		        	modalResize();
+		        	$(modal).fadeIn('fast');
+		        });
 		
 		        // 「.modal-overlay」あるいは「.modal-close」をクリック
-		        $('.modal-overlay, .modal-close').off().click(function(){
-		            // モーダルコンテンツとオーバーレイをフェードアウト
+		        $('.modal-overlay, *[close="true"]').off().click(function() {
+		        	closeModal();
+		        });
+
+		        function closeModal() {
+		        	// モーダルコンテンツとオーバーレイをフェードアウト
 		            $(modal).fadeOut('fast');
 		            $('.modal-overlay').fadeOut('fast',function(){
 		                // オーバーレイを削除
 		                $('.modal-overlay').remove();
 		            });
-		        });
+		            $('body').css('overflow', 'visible');
+		        }
 		
 		        // リサイズしたら表示位置を再取得
 		        $(window).on('resize', function(){

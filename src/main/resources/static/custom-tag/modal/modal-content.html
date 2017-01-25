@@ -2,8 +2,43 @@
 
 <dom-module id="modal-content">
 
+	<style>
+		.container {
+		    position: fixed;
+		    display: none;
+		    z-index: 2;
+		    width: 100%;
+		    height: 90%;
+		    margin: 0;
+		    padding: 0;
+		    background-color: rgba(0,0,0,0.0);
+		    overflow-y: scroll;
+		}
+		
+		.scrollpane {
+			width: 210px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		.title {
+			font-family: h;
+			font-size: 28px;
+			text-align: center;
+			color: white;
+			margin: 0;
+			margin-bottom: 10px;
+			width: 100%;
+		}
+	</style>
+
   <template>
-    <div id="{{key}}" class="modal-content"><content></content></div>
+    <div id="[[key]]" class="modal-content container">
+    	<div class="scrollpane">
+    		<div class="title">[[title]]</div>
+    		<content></content>
+    	</div>
+    </div>
   </template>
 	
 	<script>
@@ -11,6 +46,9 @@
 	      is: "modal-content",
 	      properties: {
 	      	key: {
+		      	type: String
+	      	},
+	      	title: {
 		      	type: String
 	      	}
       	  }

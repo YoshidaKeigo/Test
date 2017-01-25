@@ -1,11 +1,45 @@
 <div th:fragment="main-menu">
-	<modal-window target="data1">
+	<modal-window target="menu">
 		<fixed-component>
-			<circle-button style="width:50px;height:50px"><img src="img/menu.png"/></circle-button>
+			<circle-button style="width:65px;height:65px"><img src="img/menu.png"/></circle-button>
 		</fixed-component>
 	</modal-window>
-	<modal-content key="data1">
-		<p>modal test</p>
-		<a class="modal-close">閉じる</a>
+	
+	<modal-content key="menu" title="メニュー">
+		<search-box></search-box>
+		<menu-button value="記事を作成する" image="img/add.png"></menu-button>
+		<menu-button value="記事を編集する" image="img/update.png"></menu-button>
+		<menu-button value="記事を削除する" image="img/delete.png"></menu-button>
+		<menu-button value="カテゴリ検索" image="img/category.png" rewrite-target="category"></menu-button>
+		<menu-button value="並び替える" image="img/sort.png" rewrite-target="sort"></menu-button>
+		<menu-separator>
+			<a href="/">
+				<menu-button value="ホームへ戻る" image="img/home.png" home="true"></menu-button>
+			</a>
+			<menu-button value="閉じる" image="img/close.png" close="true"></menu-button>
+		</menu-separator>
+	</modal-content>
+	
+	<modal-content key="category" title="カテゴリ">
+		<div th:each="category : ${categories}" th:object="${category}">
+			<a th:href="@{Category/{path}(path=*{path})}">
+				<menu-button th:value="*{name}" image="img/item.png"></menu-button>	
+			</a>
+		</div>
+		<menu-separator>
+			<menu-button value="前へ戻る" image="img/back.png" rewrite-target="menu"></menu-button>
+			<menu-button value="閉じる" image="img/close.png" close="true"></menu-button>
+		</menu-separator>
+	</modal-content>
+	
+	<modal-content key="sort" title="並び替え">
+		<menu-button value="記事の新しい順" image="img/item.png"></menu-button>
+		<menu-button value="記事の古い順" image="img/item.png"></menu-button>
+		<menu-button value="評価の高い順" image="img/item.png"></menu-button>
+		<menu-button value="評価の低い順" image="img/item.png"></menu-button>
+		<menu-separator>
+			<menu-button value="前へ戻る" image="img/back.png" rewrite-target="menu"></menu-button>
+			<menu-button value="閉じる" image="img/close.png" close="true"></menu-button>
+		</menu-separator>
 	</modal-content>
 </div>

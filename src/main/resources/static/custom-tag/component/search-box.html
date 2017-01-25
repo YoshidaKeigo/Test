@@ -1,0 +1,54 @@
+<link rel="import" href="../../web-lib/polymer/polymer.html">
+
+<dom-module id="search-box">
+
+  <style>
+  	div {
+  		height: 30px;
+  		width: 200px;
+  		margin-top: 0px;
+  		margin-left: auto;
+  		margin-right: auto;
+  		margin-bottom: 20px;
+  	}
+  
+  	img {
+  		float: left;
+  		width: 30px;
+  		height: 30px;
+  	}
+  
+	#searchtext {
+		float: left;
+		font-family: h;
+		width: 170px;
+		height: 30px;
+		border: none;
+		border-bottom: solid 1px white;
+		background-color: transparent;
+		padding: 0;
+		font-size: 15px;
+		color: white;
+		outline: 0;
+	}
+  </style>
+	
+  <template>
+	<form action="javascript:submit()"><div>
+		<a href="javascript:submit()"><img src="../../img/search.png"></a>
+		<input id="searchtext" type="search" placeholder="検索"></input>
+	</div></form>
+  </template>
+
+  <script>
+    Polymer({
+      is: "search-box"
+    });
+    
+    var submit = function() {
+    	var text = "Search/" + $('#searchtext').val();
+    	window.location.href = text;
+    };
+  </script>
+
+</dom-module>
