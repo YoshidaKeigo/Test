@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=450px" />
 	<script src="web-lib/webcomponentsjs/webcomponents-lite.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/revie.css"/>
+	<link rel="stylesheet" type="text/css" href="css/article-form.css"/>
 	<link rel="import" href="custom-tag/layout/contents-container.html"/>
 	<link rel="import" href="custom-tag/layout/main-content.html"/>
 	<link rel="import" href="custom-tag/layout/sub-content.html"/>
@@ -32,7 +33,7 @@
 	<div th:include="main-menu :: main-menu"></div>
 
 	<contents-container>
-		<main-content th:include="main-content :: main-content"></main-content>
+		<main-content th:include="__${mainContentPath}__"></main-content>
 		<sub-content th:include="sub-content :: sub-content"></sub-content>
 	</contents-container>
 	

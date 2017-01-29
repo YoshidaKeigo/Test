@@ -1,7 +1,10 @@
 package link.revie.model;
 
-import java.util.Objects;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import org.thymeleaf.util.StringUtils;
 
 public enum CategoryType {
 	
@@ -40,9 +43,15 @@ public enum CategoryType {
 		return path;
 	}
 	
+	public static List<CategoryType> itemValues() {
+		return Stream.of(CategoryType.values())
+			.filter(c -> c != CategoryType.ALL)
+			.collect(Collectors.toList());
+	}
+	
 	public static CategoryType of(String code) {
 		return Stream.of(values())
-				.filter(c -> Objects.equals(c.getCode(), code))
+				.filter(c -> StringUtils.equals(c.getCode(), code))
 				.findFirst()
 				.orElse(null);
 	}

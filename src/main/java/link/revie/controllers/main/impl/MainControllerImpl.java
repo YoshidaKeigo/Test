@@ -24,7 +24,9 @@ public class MainControllerImpl implements MainController {
 		List<CategoryType> categories = Lists.newArrayList(CategoryType.values());
 		List<Article> articleList = articleService.findAll();
 		
-		model.addAttribute("categories", categories);	
+		model.addAttribute("mainContentPath", "main-content :: main-content");
+		model.addAttribute("categories", categories);
+		model.addAttribute("article", new Article());	
 		return "main";
 	}
 
