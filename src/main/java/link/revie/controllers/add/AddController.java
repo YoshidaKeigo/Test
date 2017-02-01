@@ -12,18 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping(value = "/Add")
 public interface AddController {
 
-	@RequestMapping(value = "/AddForm", method = RequestMethod.GET)
+	@RequestMapping(value = "/Form", method = RequestMethod.GET)
 	String form(Model model);
 
-	@RequestMapping(value = "/AddForm", method = RequestMethod.POST)
+	@RequestMapping(value = "/Form", method = RequestMethod.POST)
 	String form(@ModelAttribute Article article, BindingResult bindingResult, Model model);
 
-	@RequestMapping(value = "/AddConfirm", method = RequestMethod.POST)
+	@RequestMapping(value = "/Confirm", method = RequestMethod.POST)
 	String confirm(@Valid @ModelAttribute Article article, BindingResult bindingResult, Model model);
 
-	@RequestMapping(value = "/AddRegister", method = RequestMethod.POST)
+	@RequestMapping(value = "/Register", method = RequestMethod.POST)
 	String register(@ModelAttribute Article article, Model model);
 
 }

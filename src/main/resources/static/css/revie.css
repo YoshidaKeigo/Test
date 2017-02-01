@@ -33,6 +33,21 @@ header search-box:after {
 	clear: both;
 }
 
+aside {
+	margin: 10px;
+	margin-top: 0px;
+	margin-right: 150px;
+	padding: 5px;
+	padding-top: 0px;
+}
+
+p {
+	margin: 10px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding: 5px;
+}
+
 footer {
 	width: auto;
 	margin: 10px;
@@ -50,6 +65,14 @@ h1 {
 	border-bottom: solid 1px black;
 }
 
+h2 {
+	font-family: h;
+	font-size: 22px;
+	margin: 10px;
+	margin-bottom: 14px;
+	border-bottom: solid 1px black;
+}
+
 .modal-overlay {
 	z-index:1;
 	display:none;
@@ -62,11 +85,116 @@ h1 {
 }
 
 .shadow-button {
-	box-shadow: 2px 2px 4px 1px rgba(0,0,0,0.3);
+	box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.3);
 }
-.shadow-button:active {
-	box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.3);
-}
+
 .shadow-button:hover {
-	box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.3);
+	box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.3);
+}
+
+.shadow-button:active {
+	box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3);
+}
+
+.datetime {
+	font-size: 12px;
+	vertical-align: top;
+}
+
+.input-form {
+	width: inherit;
+}
+
+.input-form input[type="text"], .input-form textarea {
+	margin: 5px;
+	padding: 5px;
+	font-size: 15px;
+}
+
+.input-title {
+	width: 95%;
+}
+
+.input-year {
+	width: 60px;
+}
+
+.input-month {
+	width: 30px;
+}
+
+.input-movie-type, .input-categories {
+	margin: 3px;
+	border-radius: 3px;
+	font-size: 12px;
+	color: white;
+	background-color: gray;
+	text-align: center;
+	cursor: pointer;
+}
+
+.input-movie-type:hover, .input-categories:hover {
+	background-color: green;
+}
+
+.input-movie-type {
+	width: 60px;
+} 
+
+.input-categories {
+	width: 120px;
+} 
+
+input[type="radio"], input[type="checkbox"] {
+	display: none;
+}
+
+input[type="radio"]:checked + div, input[type="checkbox"]:checked ~ div {
+	background-color: green;
+}
+
+.input-point {
+	width: 30px;
+}
+
+.input-text {
+	height: 100px;
+	width: 95%;
+	overflow-y: scroll;
+}
+
+input[type="submit"], input[type="button"] {
+	width: 150px;
+	margin: 5px;
+	margin-top: 20px;
+	border-radius: 5px;
+	font-size: 20px;
+	color: white;
+	background-color: gray;
+	text-align: center;
+	border-style: none;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover {
+	background-color: green;
+}
+
+.input-label {
+	font-family: h;
+	font-size: 18px;
+	height: auto;
+	padding: 5px;
+	padding-left: 0;
+}
+
+.input-confirm {
+	font-size: 15px;
+	height: auto;
+	padding: 5px;
+	padding-left: 30px;
+}
+
+.input-error {
+	font-size: 12px;
+	color: red;
 }

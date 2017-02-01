@@ -19,7 +19,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -48,7 +47,7 @@ import lombok.NoArgsConstructor;
 public class Article {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ARTICLE_ID_SEQ")
-	@SequenceGenerator(name="ARTICLE_ID_SEQ", sequenceName="ARTICLE_ID_SEQ", initialValue=2, allocationSize=2)
+	@SequenceGenerator(name="ARTICLE_ID_SEQ", sequenceName="ARTICLE_ID_SEQ", initialValue=100, allocationSize=100)
 	@Column(name = "ID")
 	private Integer id;
 	

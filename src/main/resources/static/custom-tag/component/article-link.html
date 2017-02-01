@@ -9,6 +9,7 @@
 		color: black;
 	}
     div {
+    	overflow: auto;
     	margin: 10px;
     	padding: 5px;
     	border-left: solid 10px gray;
@@ -16,7 +17,7 @@
 	div:hover {
     	border-left: solid 10px green;
 	}
-	h2 {
+	h3 {
 		font-size: 15px;
 		margin: 0;
 		margin-bottom: 2px;
@@ -36,16 +37,19 @@
 	}
 	p {
 		font-size: 15px;
+		margin-top: 10px;
+		margin-bottom: 10px;
 	}
   </style>
 
   <template>
     <a href$="[[href]]"><div class="shadow-button">
-    	<h2>[[title]]</h2>
-    	<span class="small"><time>[[datetime]]</time> 投稿</span>
-    	評価 <span class="large">[[point]]</span> /100点
-    	<br/>
-    	<p><content></content></p>
+    	<time class="datetime">[[datetime]] 投稿</time>
+    	<h3>[[title]]</h3>
+    	<show-evaluation point="[[point]]"></show-evaluation>
+    	<aside>
+			<content></content>
+		</aside>
     </div></a>
   </template>
 

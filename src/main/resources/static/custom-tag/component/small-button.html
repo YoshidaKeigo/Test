@@ -1,0 +1,56 @@
+<link rel="import" href="../../web-lib/polymer/polymer.html">
+
+<dom-module id="small-button">
+
+  <style>
+	
+	.flat {
+		display: inline-block;
+		font-size: 12px;
+		padding: 2.5px;
+		height: 15px;
+		line-height: 15px;
+		background-color: green;
+		color: white;
+		border-radius: 4px;
+	}
+	
+	.clickable:active {
+		background-color: darkgreen;
+	}
+
+  </style>
+
+  <template>
+    <div id="label" class="flat">
+		<content></content>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: "small-button",
+      properties: {
+      	href: {
+	      	type: String,
+	      	value: "#"
+      	}
+      },
+      observers: [
+      	'clickable(href)'
+      ],
+      clickable: function(href) {
+     	if (href==="#") {
+     		return;
+     	}
+      	var target = this.$.label;
+      	var nextPage = function() {
+	    	window.location.href = href;
+	    };
+      	target.className = target.className + " shadow-button clickable";
+      	target.onclick = nextPage;
+      }
+    });
+  </script>
+
+</dom-module>

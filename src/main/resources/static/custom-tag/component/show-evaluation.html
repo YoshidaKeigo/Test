@@ -1,0 +1,57 @@
+<link rel="import" href="../../web-lib/polymer/polymer.html">
+
+<dom-module id="show-evaluation">
+
+  <style>
+  	.label {
+  		float: right;
+  		font-size: 15px;
+  		text-align: center;
+  		width: 150px;
+  	}
+  	
+  	.label:after {
+  		clear: both;
+  	}
+  	
+  	#point {
+  		display: inline-block;
+  		font-size: 25px;
+  	}
+  </style>
+
+  <template>
+  	<div class="label">評価：<div id="point">[[point]]</div> /100点</div>
+  </template>
+
+  <script>
+    Polymer({
+      is: "show-evaluation",
+      properties: {
+      	point: String
+      },
+      observers: [
+      	'evaluation(point)'
+      ],
+      evaluation: function(point) {
+      	var target = this.$.point;
+    	var pointNum = Number(point);
+    	var changeColor = function(colorStr) {
+    		target.style.color = colorStr;
+    	}
+    	if (pointNum < 60) {
+    		changeColor('blue');
+    	} else if (60 <= pointNum && pointNum <80) {
+    		changeColor('black');
+    	} else if (80 <= pointNum && pointNum  < 90) {
+    		changeColor('orange');
+    	} else {
+    		changeColor('red');
+    	}
+      }
+    });
+    
+
+  </script>
+
+</dom-module>

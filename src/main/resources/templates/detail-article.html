@@ -1,0 +1,29 @@
+<div th:fragment="detail-article">
+	<article style="overflow: hidden;" th:object="${article}">
+		<time class="datetime" th:text="*{#dates.format(createdTime, 'yyyy年MM月dd日 HH:mm 記事投稿')}"></time>
+		<h1 th:text="*{title}"></h1>
+		<show-evaluation th:attr="point=*{point}"></show-evaluation>
+		<aside>
+			<div class="datetime" th:text="|*{year}年*{month}月 公開|"></div>
+			<small-button th:href="@{/Category/{path}(path=*{movieType.code})}" th:text="*{movieType.name}"></small-button>
+			<th:block th:each="category : *{categories}">
+				<small-button th:href="@{/Category/{path}(path=${category.path})}" th:text="${category.name}"></small-button>
+			</th:block>
+		</aside>
+		
+		<p th:text="*{text}"></p>
+		
+	</article>
+	<section th:object="${article}">
+		<h2>BD/DVD予告</h2>
+		<th:block th:each="subArticle : *{articles}">
+			<article-link th:href="@{/Detail/{id}(id=${subArticle.id})}" th:attr="title=${subArticle.title}, datetime=${#dates.format(subArticle.createdTime, 'yyyy年MM月dd日 HH:mm')}, point=${subArticle.point}">
+				<div class="datetime" th:text="|${subArticle.year}年${subArticle.month}月 公開|"></div>
+				<small-button th:text="${subArticle.movieType.name}"></small-button>
+				<th:block th:each="category : ${subArticle.categories}">
+					<small-button th:text="${category.name}"></small-button>
+				</th:block>
+			</article-link>
+		</th:block>
+	</section>
+</div>

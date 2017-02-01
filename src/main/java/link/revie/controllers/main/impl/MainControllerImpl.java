@@ -21,12 +21,11 @@ public class MainControllerImpl implements MainController {
 	
 	@Override
 	public String main(Model model) {
-		List<CategoryType> categories = Lists.newArrayList(CategoryType.values());
-		List<Article> articleList = articleService.findAll();
+		List<Article> articles = Lists.newArrayList(articleService.findAll());
 		
 		model.addAttribute("mainContentPath", "main-content :: main-content");
-		model.addAttribute("categories", categories);
-		model.addAttribute("article", new Article());	
+		model.addAttribute("categories", CategoryType.values());
+		model.addAttribute("articles", articles);
 		return "main";
 	}
 
@@ -34,6 +33,5 @@ public class MainControllerImpl implements MainController {
 	public String login() {
 		return "login";
 	}
-	
 	
 }

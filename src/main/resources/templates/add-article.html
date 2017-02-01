@@ -1,6 +1,6 @@
 <div th:fragment="add-form">
 	<h1>記事作成</h1>
-	<form role="form" class="input-form" action="/AddConfirm" th:action="@{/AddConfirm}" th:object="${article}" method="post">
+	<form role="form" class="input-form" action="/Add/Confirm" th:action="@{/Add/Confirm}" th:object="${article}" method="post">
 		<div class="input-label">◼タイトル</div>
 		<div class="input-error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
 		<input type="text" class="input-title" name="title" th:field="*{title}"/>
@@ -53,11 +53,11 @@
 		<div class="input-label">◼内容</div>
 		<div class="input-confirm" th:text="*{text}"></div>
 
-		<form role="form" style="display: inline-block" action="/AddRegister" th:action="@{/AddRegister}" method="post">
+		<form role="form" style="display: inline-block" action="/Add/Register" th:action="@{/Add/Register}" method="post">
 			<div th:replace="add-article :: add-confirm-hidden"></div>
 			<input type="submit" value="登録する" />
 		</form>
-		<form role="form" style="display: inline-block" action="/AddForm" th:action="@{/AddForm}" method="post">
+		<form role="form" style="display: inline-block" action="/Add/Form" th:action="@{/Add/Form}" method="post">
 			<div th:replace="add-article :: add-confirm-hidden"></div>
 			<input type="submit" value="作成画面に戻る" />
 		</form>
