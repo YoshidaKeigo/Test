@@ -15,8 +15,9 @@
 			<a th:href="@{/Update/Form/{id}(id=${article.id})}">
 				<menu-button value="記事を編集する" image="/img/update.png"></menu-button>
 			</a>
+			<menu-button value="記事を削除する" image="/img/delete.png" rewrite-target="delete"></menu-button>
 		</th:block>
-		<menu-button value="記事を削除する" image="/img/delete.png"></menu-button>
+		
 		<menu-button value="カテゴリ検索" image="/img/category.png" rewrite-target="category"></menu-button>
 		<menu-button value="並び替える" image="/img/sort.png" rewrite-target="sort"></menu-button>
 		<menu-separator>
@@ -48,5 +49,16 @@
 			<menu-button value="前へ戻る" image="/img/back.png" rewrite-target="menu"></menu-button>
 			<menu-button value="閉じる" image="/img/close.png" close="true"></menu-button>
 		</menu-separator>
+	</modal-content>
+	
+	<modal-content th:if="${article != null}" key="delete" title="記事の削除">
+		<div style="font-family: h;font-size: 15px;color: white;margin-top: 20px;margin-bottom: 20px;">
+			「<span th:text="${article.title}"></span>」を削除します。本当によろしいですか？
+		</div>
+		<a th:href="@{/Delete/{id}(id=${article.id})}">
+			<menu-button value="削除する" image="/img/delete.png"></menu-button>
+		</a>
+		<menu-button value="キャンセル" image="/img/back.png" rewrite-target="menu"></menu-button>
+		<menu-button value="閉じる" image="/img/close.png" close="true"></menu-button>
 	</modal-content>
 </div>
