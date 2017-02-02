@@ -1,7 +1,7 @@
 <div th:fragment="main-content">
 	<h1>新着記事</h1>
 	<th:block th:each="article : ${articles}" th:object="${article}">
-		<article-link th:href="@{/Detail/{id}(id=*{id})}" th:attr="title=*{title}, datetime=*{#dates.format(createdTime, 'yyyy年MM月dd日 HH:mm')}, point=*{point}">
+		<article-link th:href="@{/Detail/{id}(id=*{id})}" th:attr="title=*{title}, datetime=*{#dates.format(modifiedTime, 'yyyy年MM月dd日 HH:mm')}, point=*{point}">
 			<div class="datetime" th:text="|*{year}年*{month}月 公開|"></div>
 			<small-button th:text="*{movieType.name}"></small-button>
 			<th:block th:each="category : *{categories}">

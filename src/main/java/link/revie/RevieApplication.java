@@ -27,4 +27,5 @@ public class RevieApplication {
     public AuditingEntityListener createAuditingListener() {
         return new AuditingEntityListener();
     }
+	
 }

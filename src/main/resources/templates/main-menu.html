@@ -11,7 +11,11 @@
 		<a href="/Add/Form">
 			<menu-button value="記事を作成する" image="/img/add.png"></menu-button>
 		</a>
-		<menu-button value="記事を編集する" image="/img/update.png"></menu-button>
+		<th:block th:if="${article != null}">
+			<a th:href="@{/Update/Form/{id}(id=${article.id})}">
+				<menu-button value="記事を編集する" image="/img/update.png"></menu-button>
+			</a>
+		</th:block>
 		<menu-button value="記事を削除する" image="/img/delete.png"></menu-button>
 		<menu-button value="カテゴリ検索" image="/img/category.png" rewrite-target="category"></menu-button>
 		<menu-button value="並び替える" image="/img/sort.png" rewrite-target="sort"></menu-button>
