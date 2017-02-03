@@ -2,6 +2,9 @@ package link.revie.controllers.update.impl;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -48,6 +51,7 @@ public class UpdateControllerImpl implements UpdateController {
 		model.addAttribute("mainContentPath", "update-article :: update-form");
 		model.addAttribute("categories", CategoryType.itemValues());
 		model.addAttribute("movieTypes", MovieType.values());
+		complementArticleRelation(article);
 		model.addAttribute("article", article);	
 		return "main";
 	}
@@ -61,12 +65,14 @@ public class UpdateControllerImpl implements UpdateController {
 			model.addAttribute("mainContentPath", "update-article :: update-confirm");
 		}
 		model.addAttribute("categories", CategoryType.itemValues());
+		complementArticleRelation(article);
 		model.addAttribute("article", article);	
 		return "main";
 	}
 
 	@Override
 	public String register(Article article, Model model) {
+		complementArticleRelation(article);
 		articleService.save(article);
 		
 		model.addAttribute("mainContentPath", "update-article :: update-registered");
@@ -74,4 +80,16 @@ public class UpdateControllerImpl implements UpdateController {
 		return "main";
 	}
 
+	private void complementArticleRelation(Article article) {
+		List<Article> complementedList = article.getArticles().stream()
+			.map(a -> {
+				if (Objects.nonNull(a.getId())) {
+					return articleService.findById(a.getId());
+				} else {
+					return a;
+				}
+			}).collect(Collectors.toList());
+		article.getArticles().clear();
+		article.getArticles().addAll(complementedList);
+	}
 }

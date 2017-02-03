@@ -31,7 +31,8 @@
 		<div class="input-label">◼内容</div>
 		<div class="input-error" th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></div>
 		<textarea class="input-text" th:field="*{text}"></textarea>
-		<input type="hidden" name="createdTime" th:value="*{createdTime}"></input>
+		<th:block th:replace="update-article :: update-article-relations"></th:block>
+		<input type="hidden" name="createdTime" th:value="*{#dates.format(createdTime, 'yyyy-MM-dd HH:mm:ss.S')}"></input>
 		<input type="submit" value="確認する" />
 		<a href="/"><input type="button" value="キャンセル" /></a>
 	</form>
@@ -77,7 +78,15 @@
 	</th:block>
 	<input type="hidden" name="point" th:value="*{point}"></input>
 	<input type="hidden" name="text" th:value="*{text}"></input>
+	<th:block th:replace="update-article :: update-article-relations"></th:block>
 	<input type="hidden" name="createdTime" th:value="*{#dates.format(createdTime, 'yyyy-MM-dd HH:mm:ss.S')}"></input>
+</div>
+
+<div th:fragment="update-article-relations">
+	<th:block th:each="subarticle, stat : *{articles}">
+		<input type="hidden" th:name="${'articles[' + stat.index + '].id'}" th:value="${subarticle.id}"></input>
+		<input type="hidden" th:name="${'articles[' + stat.index + '].title'}" th:value="${subarticle.title}"></input>
+	</th:block>
 </div>
 
 <div th:fragment="update-registered">

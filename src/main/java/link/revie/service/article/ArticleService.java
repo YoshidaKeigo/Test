@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ArticleService {
 
 	List<Article> findAll();
-
+	
 	Article findById(Integer id);
 
 	Article save(Article article);

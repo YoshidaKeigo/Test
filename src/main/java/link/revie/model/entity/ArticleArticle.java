@@ -3,7 +3,9 @@ package link.revie.model.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -17,7 +19,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ArticleArticle {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ARTICLE_ARTICLE_ID_SEQ")
+	@SequenceGenerator(name="ARTICLE_ARTICLE_ID_SEQ", sequenceName="ARTICLE_ARTICLE_ID_SEQ", initialValue=100, allocationSize=100)
 	@Column(name = "ID")
 	private Integer id;
 	@Column(name = "FROM_ID")

@@ -12,13 +12,11 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -29,6 +27,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.google.common.collect.Lists;
 
 import link.revie.model.CategoryType;
 import link.revie.model.CategoryTypeConverter;
@@ -89,11 +89,8 @@ public class Article {
 	@Size(max = 5000, message = "内容：5000文字以内で記入してください。")
 	private String text;
 	
-	@OneToMany
-	@JoinTable(name = "ARTICLE_ARTICLE",
-			joinColumns = { @JoinColumn(name = "FROM_ID", referencedColumnName = "ID") },
-			inverseJoinColumns = { @JoinColumn(name = "TO_ID", referencedColumnName = "ID") })
-	private List<Article> articles;
+	@Transient
+	private List<Article> articles = Lists.newArrayList();
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "CREATED_TIME")
