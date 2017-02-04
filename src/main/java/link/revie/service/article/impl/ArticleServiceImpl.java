@@ -5,6 +5,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import link.revie.model.MovieType;
 import link.revie.model.entity.Article;
 import link.revie.model.entity.ArticleArticle;
 import link.revie.model.repository.ArticleRepository;
@@ -40,6 +41,26 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
+	public List<Article> findByTitle(String title) {
+		return articleRepository.findByTitle(title);
+	}
+
+	@Override
+	public List<Article> findByString(String string) {
+		return articleRepository.findByString(string);
+	}
+
+	@Override
+	public List<Article> findByCategory(String code) {
+		return articleRepository.findByCategory(code);
+	}
+
+	@Override
+	public List<Article> findByMovieType(String code) {
+		return articleRepository.findByMovieType(MovieType.of(code));
+	}
+	
+	@Override
 	public Article save(Article article) {
 		if (!CollectionUtils.isEmpty(article.getArticles())) {
 			List<Article> articles = articleRepository.save(article.getArticles());
@@ -69,4 +90,5 @@ public class ArticleServiceImpl implements ArticleService {
 		article.getArticles().addAll(articles);
 		return article;
 	}
+
 }

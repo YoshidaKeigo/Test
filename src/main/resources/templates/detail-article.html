@@ -5,7 +5,7 @@
 		<show-evaluation th:attr="point=*{point}"></show-evaluation>
 		<aside>
 			<div class="datetime" th:text="|*{year}年*{month}月 公開|"></div>
-			<small-button th:href="@{/Category/{path}(path=*{movieType.code})}" th:text="*{movieType.name}"></small-button>
+			<small-button th:href="@{/MovieType/{path}(path=*{movieType.code})}" th:text="*{movieType.name}"></small-button>
 			<th:block th:each="category : *{categories}">
 				<small-button th:href="@{/Category/{path}(path=${category.path})}" th:text="${category.name}"></small-button>
 			</th:block>

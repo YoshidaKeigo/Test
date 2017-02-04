@@ -14,6 +14,14 @@ public interface ArticleService {
 	List<Article> findAll();
 	
 	Article findById(Integer id);
+	
+	List<Article> findByTitle(String title);
+
+	List<Article> findByString(String string);
+	
+	List<Article> findByCategory(String code);
+	
+	List<Article> findByMovieType(String code);
 
 	Article save(Article article);
 

@@ -1,4 +1,4 @@
-package link.revie.controllers.category;
+package link.revie.controllers.movietype;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/Category")
-public interface CategoryController {
+@RequestMapping("/MovieType")
+public interface MovieTypeController {
 
-	@RequestMapping(value = "/{category}", method = RequestMethod.GET)
-	String get(String category, Model model);
+	@RequestMapping(value = "/{type}", method = RequestMethod.GET)
+	String get(String type, Model model);
 
 }

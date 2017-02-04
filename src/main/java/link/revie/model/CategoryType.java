@@ -1,6 +1,7 @@
 package link.revie.model;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -56,4 +57,9 @@ public enum CategoryType {
 				.orElse(null);
 	}
 
+	public static Optional<CategoryType> getFromPath(String path) {
+		return Stream.of(values())
+				.filter(c -> StringUtils.equals(c.getPath(), path))
+				.findFirst();
+	}
 }
