@@ -18,20 +18,15 @@ public class MainControllerImpl implements MainController {
 
 	@Autowired
 	ArticleService articleService;
-	
+
 	@Override
 	public String main(Model model) {
 		List<Article> articles = Lists.newArrayList(articleService.findAll());
-		
+
 		model.addAttribute("mainContentPath", "main-content :: main-content");
 		model.addAttribute("categories", CategoryType.values());
 		model.addAttribute("articles", articles);
 		return "main";
 	}
 
-	@Override
-	public String login() {
-		return "login";
-	}
-	
 }
