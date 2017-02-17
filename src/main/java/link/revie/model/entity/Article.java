@@ -46,8 +46,7 @@ import lombok.NoArgsConstructor;
 @EntityListeners(value = AuditingEntityListener.class)
 public class Article {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ARTICLE_ID_SEQ")
-	@SequenceGenerator(name="ARTICLE_ID_SEQ", sequenceName="ARTICLE_ID_SEQ", initialValue=100, allocationSize=100)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "ID")
 	private Integer id;
 	

@@ -19,8 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ArticleArticle {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ARTICLE_ARTICLE_ID_SEQ")
-	@SequenceGenerator(name="ARTICLE_ARTICLE_ID_SEQ", sequenceName="ARTICLE_ARTICLE_ID_SEQ", initialValue=100, allocationSize=100)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "ID")
 	private Integer id;
 	@Column(name = "FROM_ID")
