@@ -1,6 +1,0 @@
-# http://repos.revie.link/gitlab/motegi/revie-docker に合わせて作成ひとまずDB名はrevie
-spring.datasource.url=jdbc:mysql://database/revie
-spring.datasource.username=root
-spring.datasource.password=password
-spring.datasource.driverClassName=com.mysql.jdbc.Driver
-spring.jpa.hibernate.ddl-auto=validate
