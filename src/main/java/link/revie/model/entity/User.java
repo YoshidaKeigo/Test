@@ -25,8 +25,8 @@ import java.util.List;
 @Table(name = "USER")
 public class User implements UserDetails {
     public enum Authority {
-        USER,
-        ADMIN,
+        ROLE_USER,
+        ROLE_ADMIN,
     }
 
     @Id

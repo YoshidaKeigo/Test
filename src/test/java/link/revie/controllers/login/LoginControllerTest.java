@@ -65,7 +65,7 @@ public class LoginControllerTest {
                 1,
                 userName,
                 encodePassword,
-                User.Authority.ADMIN,
+                User.Authority.ROLE_ADMIN,
                 "2017-02-02 12:12:12",
                 "2017-02-02 13:12:12"
         );
@@ -94,7 +94,7 @@ public class LoginControllerTest {
                 1,
                 userName,
                 password,
-                User.Authority.ADMIN,
+                User.Authority.ROLE_ADMIN,
                 "2017-02-02 12:12:12",
                 "2017-02-02 13:12:12"
         );
@@ -121,7 +121,7 @@ public class LoginControllerTest {
      * ログイン中にログアウトを実施しログアウトが成功していることをテストします。
      */
     @Test
-    @WithMockUser(username = "login_ok_user", authorities = {"ADMIN"})
+    @WithMockUser(username = "login_ok_user", authorities = {"ROLE_ADMIN"})
     public void test_005_logout_OK() throws Exception {
         this.mvc.perform(get("/"))
                 .andExpect(authenticated());

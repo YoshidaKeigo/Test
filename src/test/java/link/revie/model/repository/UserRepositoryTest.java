@@ -52,7 +52,7 @@ public class UserRepositoryTest {
                 2,
                 "test_user2",
                 "hoge",
-                User.Authority.ADMIN,
+                User.Authority.ROLE_ADMIN,
                 "2017-02-01 12:12:12",
                 "2017-02-01 13:12:12"
         );

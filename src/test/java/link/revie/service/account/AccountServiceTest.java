@@ -42,7 +42,7 @@ public class AccountServiceTest {
                 1,
                 userName,
                 "load_success_password",
-                User.Authority.ADMIN,
+                User.Authority.ROLE_ADMIN,
                 "2017-02-02 12:12:12",
                 "2017-02-02 13:12:12"
         );
@@ -63,7 +63,7 @@ public class AccountServiceTest {
                 1,
                 "empty_username",
                 "empty_username_password",
-                User.Authority.ADMIN,
+                User.Authority.ROLE_ADMIN,
                 "2017-02-02 12:12:12",
                 "2017-02-02 13:12:12"
         );
@@ -83,7 +83,7 @@ public class AccountServiceTest {
                 1,
                 "null_username",
                 "null_username_password",
-                User.Authority.ADMIN,
+                User.Authority.ROLE_ADMIN,
                 "2017-02-02 12:12:12",
                 "2017-02-02 13:12:12"
         );
