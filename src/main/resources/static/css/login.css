@@ -25,7 +25,7 @@ img {
 	width: 300px;
 }
 
-input[type="button"] {
+input[type="submit"], [type="button"] {
 	font-size: 15px;
 	height: 30px;
 	width: 300px;
@@ -34,7 +34,7 @@ input[type="button"] {
 	color: white;
 }
 
-input[type="button"]:hover {
+input[type="submit"], [type="button"]:hover {
 	background-color: green;
 }
 
@@ -46,4 +46,28 @@ input {
 	padding: 0px;
 	padding-left: 10px;
 	border: 0;
+}
+
+
+.bs-callout {
+    padding: 5px;
+    margin: 0 0;
+    border: 1px solid #ff7d7d;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+}
+
+/* Variations */
+.bs-callout-danger {
+    border-left-color: #ff5050;
+}
+
+.bs-callout-danger h4 {
+    color: #ff7d7d;
 }
