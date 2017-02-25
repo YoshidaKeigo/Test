@@ -78,7 +78,7 @@ public class LoginControllerTest {
                 .password("password", password)
         )
                 .andExpect(status().isFound())
-                .andExpect(redirectedUrl("/Add/Form"))
+                .andExpect(redirectedUrl("/"))
                 .andExpect(authenticated().withUsername(userName));
     }
 

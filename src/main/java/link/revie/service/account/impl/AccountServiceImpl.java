@@ -1,6 +1,5 @@
 package link.revie.service.account.impl;
 
-import link.revie.model.entity.User;
 import link.revie.model.repository.UserRepository;
 import link.revie.service.account.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+
+import java.util.Optional;
 
 /**
  * アカウント情報を操作するサービス
@@ -35,10 +36,8 @@ public class AccountServiceImpl implements AccountService {
         if (StringUtils.isEmpty(userName)) {
             throw new UsernameNotFoundException("Username is Empty");
         }
-        User user = this.userRepository.findByUserName(userName);
-        if (user == null) {
-            throw new UsernameNotFoundException("User not found for name : " + userName);
-        }
-        return user;
+        return Optional.ofNullable(this.userRepository.findByUserName(userName)).orElseThrow(() ->
+                new UsernameNotFoundException("User not found for name : " + userName)
+        );
     }
 }

@@ -11,10 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import java.util.Objects;
 
 /**
  * USERテーブル用エンティティ
@@ -96,16 +94,16 @@ public class User implements UserDetails {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (Objects.isNull(o) || getClass() != o.getClass()) return false;
 
         User user = (User) o;
 
-        if (id != null ? !id.equals(user.id) : user.id != null) return false;
-        if (userName != null ? !userName.equals(user.userName) : user.userName != null) return false;
-        if (password != null ? !password.equals(user.password) : user.password != null) return false;
-        if (authority != user.authority) return false;
-        if (createdTime != null ? !createdTime.equals(user.createdTime) : user.createdTime != null) return false;
-        return modifiedTime != null ? modifiedTime.equals(user.modifiedTime) : user.modifiedTime == null;
+        if (!Objects.deepEquals(id, user.id)) return false;
+        if (!Objects.deepEquals(userName, user.userName)) return false;
+        if (!Objects.deepEquals(password, user.password)) return false;
+        if (!Objects.deepEquals(authority, user.authority)) return false;
+        if (!Objects.deepEquals(createdTime, user.createdTime)) return false;
+        return Objects.deepEquals(modifiedTime, user.modifiedTime);
     }
 
     @Override

@@ -42,7 +42,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/",
                         "/Login",
                         "/Detail/**",
-                        "/Category/**"
+                        "/Category/**",
+                        "/Search/**",
+                        "/MovieType/**"
                 )
                 .permitAll().anyRequest().authenticated();
 
@@ -51,14 +53,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/Login/Auth")                          // 認証処理のパス
                 .loginPage("/Login")                                        // ログインフォームのパス
                 .failureUrl("/Login")                                       // 認証失敗時の遷移先
-                .defaultSuccessUrl("/Add/Form")                             // 認証成功時の遷移先
+                .defaultSuccessUrl("/")                                     // 認証成功時の遷移先
                 .usernameParameter("userId").passwordParameter("password")  // ユーザー名、パスワードのパラメータ名
                 .and();
 
         // ログアウト設定
         http.logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/Logout")) // ログアウト処理のパス
-                .logoutSuccessUrl("/");                                             // 成功時の遷移先
+                .logoutSuccessUrl("/");                                     // 成功時の遷移先
     }
 
     @Configuration
