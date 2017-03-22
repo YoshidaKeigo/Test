@@ -1,0 +1,4 @@
+<div th:fragment="account-parts">
+    <div id="account-icon" sec:authorize="isAuthenticated()"><img src="/img/account.png" style="width: 20px; float: left; border-radius: 50%; border: 2px solid white; margin: 3px;"/></div>
+    <div id="account-name" sec:authorize="isAuthenticated()" sec:authentication="name" style="color: white; float: left; padding: 3px"></div>
+</div>

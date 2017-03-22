@@ -8,10 +8,10 @@
 	<modal-content key="menu" title="メニュー">
 		<search-box></search-box>
 		<div style="height: 20px; width: auto;"></div>
-		<a href="/Add/Form">
+		<a href="/Add/Form" sec:authorize="hasRole('ADMIN')">
 			<menu-button value="記事を作成する" image="/img/add.png"></menu-button>
 		</a>
-		<th:block th:if="${article != null}">
+		<th:block th:if="${article != null}" sec:authorize="hasRole('ADMIN')">
 			<a th:href="@{/Update/Form/{id}(id=${article.id})}">
 				<menu-button value="記事を編集する" image="/img/update.png"></menu-button>
 			</a>
@@ -23,6 +23,9 @@
 		<menu-separator>
 			<a href="/">
 				<menu-button value="ホームへ戻る" image="/img/home.png" home="true"></menu-button>
+			</a>
+			<a href="/Logout" sec:authorize="isAuthenticated()">
+				<menu-button value="ログアウト" image="/img/logout.png" home="true"></menu-button>
 			</a>
 			<menu-button value="閉じる" image="/img/close.png" close="true"></menu-button>
 		</menu-separator>
