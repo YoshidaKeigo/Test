@@ -107,6 +107,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<executable>true</executable>
+					<finalName>revie-app</finalName>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
