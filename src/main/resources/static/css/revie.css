@@ -8,29 +8,43 @@ body {
 }
 
 header {
-	height: 36px;
+    height: auto;
 	width: auto;
 	padding: 10px;
 	background-color: black;
+    overflow: auto;
 }
 
 header img{
 	width: 255px;
 }
 
-header+div {
+#header-left {
+    height: 60px;
+    float: left;
+}
+
+#header-right {
+    height: 60px;
+    text-align: right;
+    float: right;
+}
+
+#header-right:after {
+    clear: both;
+}
+
+#title-ja {
 	width: auto;
-	padding-left: 20px;
-	background-color: black;
+	padding-top: 5px;
+	padding-left: 10px;
 	color: white;
 }
 
-header search-box {
-	float: right;
-}
-
-header search-box:after {
-	clear: both;
+header account-parts {
+    height: 30px;
+	width: auto;
+    display: block;
 }
 
 aside {

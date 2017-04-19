@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
 	<meta name="viewport" content="width=450px" />
@@ -17,6 +18,7 @@
 	<link rel="import" href="/custom-tag/component/search-box.html"/>
 	<link rel="import" href="/custom-tag/component/show-evaluation.html"/>
 	<link rel="import" href="/custom-tag/component/small-button.html"/>
+	<link rel="import" href="/custom-tag/component/account-parts.html"/>
 	<link rel="import" href="/custom-tag/util/fixed-component.html"/>
 	<link rel="import" href="/custom-tag/modal/modal-window.html"/>
 	<link rel="import" href="/custom-tag/modal/modal-content.html"/>
@@ -26,10 +28,15 @@
 </head>
 <body>
 	<header>
-		<a href="/"><img src="/img/revie.png" style="width: 200px;"/></a>
-		<search-box></search-box>
+        <div id="header-left">
+            <a href="/"><img src="/img/revie.png" style="width: 200px;"/></a>
+			<div id="title-ja">レヴィ</div>
+        </div>
+		<div id="header-right">
+			<account-parts th:include="account-parts :: account-parts"></account-parts>
+			<search-box></search-box>
+		</div>
 	</header>
-	<div>レヴィ</div>
 
 	<div th:include="main-menu :: main-menu"></div>
 
@@ -37,10 +44,10 @@
 		<main-content th:include="__${mainContentPath}__"></main-content>
 		<sub-content th:include="sub-content :: sub-content"></sub-content>
 	</contents-container>
-	
+
 	<footer>
 		Footer
 	</footer>
-	
+
 </body>
 </html>
